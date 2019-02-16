@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap'
+@import "../node_modules/mdi/css/materialdesignicons.min.css"
+
+$body-text-color: #333
+$white-color: #fff
+$nav-link-color: #86cff3
+$nav-link-underline: #5fccff
+$grey-border-color: #c0ced7
+$light-blue: #00a9ec
+$light-grey-border-color: #dae2e7
+$background-color: #f5f7f9
+.p0
+  padding: 0 !important
+
+.sidebar
+  .sidebar-container
+    border-right: 1px solid $grey-border-color
+    border-left-width: 4px
+    padding-left: 24px
+    .list-filter
+      background: $white-color
+      border-bottom: 1px solid $light-grey-border-color
+
+      .index-search-form
+
+        .dropdown
+          &.search-filter
+
+            display: flex
+            align-items: center
+            border: none
+            border-radius: 0
+            height: 50px
+
+            i
+              padding: 0 10px 0 20px
+
+            .completer-input
+              padding: 15px 0
+
+
+    .list-container
+      font-size: 19px
+      height: calc(100vh - 210px)
+      overflow: hidden
+      background-color: darken($background-color, 2%)
+
+      > .list-wrapper
+        list-style: none
+        padding: 0
+        margin: 0
+        width: 100%
+        overflow-y: auto
+        max-height: 100%
+        background: $white-color
+
+        > .list-item
+          border-bottom: 1px solid $light-grey-border-color
+          padding: 10px 20px
+
+          &:hover
+            background-color: fade_out($light-blue, .95)
+
+          .text-muted
+            opacity: 0.65
+            white-space: nowrap
+            text-overflow: ellipsis
+            overflow: hidden
+            max-width: 100%
+
+          &.list-item-active
+            background-color: $background-color
+            box-shadow: -4px 0 0 $light-blue inset
+.viewContainer
+  height: calc(100vh - 158px)
+  overflow-y: auto
+
+.form-control
+  padding: 10px
+  font-size: 14px
+  border-color: $grey-border-color
+.page-header
+  display: flex
+  align-items: center
+  background: $white-color
+  border-bottom: 1px solid $grey-border-color
+  padding: 10px 20px
+  min-height: 62px
+.inputField
+  padding-top: 11px
+.input-tag
+  size: 35px
+.date-time
+  text-align: center
+.disabled
+  pointer-events: none
+  display: none

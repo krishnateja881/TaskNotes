@@ -1,0 +1,63 @@
+<div class="page-header row">
+  <div class="col-3 page-title" >
+    <h2>
+      Search
+    </h2>
+  </div>
+  <div class="col-6 list-filter">
+    <div class="row">
+      <div class="col-6 inputField padding-top-7px">
+        <input #myInput placeholder="Search Task" [(ngModel)]="name" (input)="filterItem(myInput.value)" style="width: 289px">
+      </div>
+      <div class="col-3">
+        <span class="mdi mdi-pencil-box-outline mdi-36px" [class.disabled]="!enteredText" (click)="save()"></span>
+      </div>
+      <div class="col-3">
+        <span class="mdi mdi-close-box-outline mdi-36px" (click)="remove()"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="btn-container">
+
+    </div>
+  </div>
+</div>
+<div class="row" >
+  <div class="col-md-3 p0 sidebar">
+    <div class="sidebar-container">
+
+      <div class="list-container" id="style-2">
+        <ul class="list-wrapper">
+          <span *ngIf="!isInputTextEnter" (click)="enterTextValue()">Enter New Text</span>
+          <div *ngIf="isInputTextEnter">
+            <span class="">{{enteredText}}</span>
+            <div class=" text-muted" *ngIf="isInputTextEnter">
+              <b></b> <span class=""> {{dateValue | date: 'shortTime'}}</span> <span class="pl5 pr5">|</span>
+              <b></b>{{info}}
+            </div>
+          </div>
+          <li class="list-item pointer" name="list"
+              *ngFor="let eachData of filteredItems;let i = index" (click)="getInfoData(eachData.id,i)" [class.list-item-active]="currentSelectedId === eachData.id">
+            <span [innerHtml]="eachData.data "></span>
+            <div class=" text-muted">
+              <b></b> <span class=""> {{eachData.date|date:'shortTime'}}</span> <span class="pl5 pr5">|</span>
+              <b></b>{{eachData.info}}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9 viewContainer" >
+
+      <div class="date-time color-gray  text-muted">
+        <span >{{dateValue| date :'full' }}</span>
+      </div>
+      <textarea class="form-control"  id="exampleFormControlTextarea3" name="textData" [(ngModel)]="enteredText"  rows="10"></textarea>
+
+  </div>
+</div>
+
